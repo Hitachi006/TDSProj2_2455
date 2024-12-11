@@ -1,7 +1,11 @@
 # Data Summary for happiness
 
 ## Basic Information
-## the dataset has {n_rows} samples with {n_columns} variables each## the summary is the datatypes and number of missing values is as below| variable                         | data_type   |   missing_data |
+# the dataset has {n_rows} samples with {n_columns} variables each
+
+# the summary is the datatypes and number of missing values is as below
+
+| variable                         | data_type   |   missing_data |
 |:---------------------------------|:------------|---------------:|
 | Country name                     | object      |              0 |
 | year                             | int64       |              0 |

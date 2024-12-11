@@ -47,8 +47,8 @@ with open(os.path.join(new_dir,'README.md'), 'w') as f:
     
     f.write("## Basic Information\n")
 
-    f.write("## the dataset has {n_rows} samples with {n_columns} variables each")
-    f.write("## the summary is the datatypes and number of missing values is as below")
+    f.write("# the dataset has {n_rows} samples with {n_columns} variables each\n\n")
+    f.write("# the summary is the datatypes and number of missing values is as below\n\n")
 
     f.write(dtypes.to_markdown(index=False))
 
