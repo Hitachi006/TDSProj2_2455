@@ -19,7 +19,7 @@ new_dir = os.path.join(os.getcwd(), file_name)
 os.makedirs(new_dir, exist_ok=True)
   
 # 3 Perform an automated analysis and create a README file
-df=pd.read_csv('goodreads.csv')
+df=pd.read_csv('happiness.csv')
 df_anal=df.describe()
   
 # 4 create a README.md file
