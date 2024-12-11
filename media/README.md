@@ -1,10 +1,19 @@
-|       |    overall |     quality |   repeatability |
-|:------|-----------:|------------:|----------------:|
-| count | 2652       | 2652        |     2652        |
-| mean  |    3.04751 |    3.20928  |        1.49472  |
-| std   |    0.76218 |    0.796743 |        0.598289 |
-| min   |    1       |    1        |        1        |
-| 25%   |    3       |    3        |        1        |
-| 50%   |    3       |    3        |        1        |
-| 75%   |    3       |    4        |        2        |
-| max   |    5       |    5        |        3        |
+# Analysis Summary for media.csv
+
+The dataset conatins 2652 samples with 8 variables each
+
+the summary is the datatypes and number of missing values is as below
+
+| variable      | data_type   |   missing_data |
+|:--------------|:------------|---------------:|
+| date          | object      |             99 |
+| language      | object      |              0 |
+| type          | object      |              0 |
+| title         | object      |              0 |
+| by            | object      |            262 |
+| overall       | int64       |              0 |
+| quality       | int64       |              0 |
+| repeatability | int64       |              0 |
+
+The variables with the highest correlation are: overall and quality, with a correlation of 0.83
+

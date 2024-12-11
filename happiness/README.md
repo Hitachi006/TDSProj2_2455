@@ -1,9 +1,6 @@
-# Data Summary for happiness
+# Analysis Summary for happiness.csv
 
-## Basic Information
-the number of samples in the dataset: {n_rows} 
-
-the number of variables in the dataset:{n_cols} 
+The dataset conatins 2363 samples with 11 variables each
 
 the summary is the datatypes and number of missing values is as below
 
@@ -20,3 +17,6 @@ the summary is the datatypes and number of missing values is as below
 | Perceptions of corruption        | float64     |            125 |
 | Positive affect                  | float64     |             24 |
 | Negative affect                  | float64     |             16 |
+
+The variables with the highest correlation are: Log GDP per capita and Healthy life expectancy at birth, with a correlation of 0.82
+
