@@ -15,7 +15,7 @@ file_name="".join(sys.argv[1:]).split('.')[0]
 
 # 2 create a new directory with filename
 new_dir = os.path.join(os.getcwd(), file_name)
-print(new_dir)
+#print(new_dir)
 os.makedirs(new_dir, exist_ok=True)
   
 # 3 Perform an automated analysis and create a README file
