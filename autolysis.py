@@ -1,11 +1,11 @@
 # a function to create an analysis
 
-#///script
-#dependencies = ["pandas","numpy","os"]
-#///
+#!/usr/bin/env uv
+# uv: dependencies = ["pandas", "numpy", "os"]
 
-#import pandas as pd
-#import numpy as np
+
+import pandas as pd
+import numpy as np
 import os
 import sys
 
@@ -19,15 +19,14 @@ new_dir = os.path.join(os.getcwd(), file_name)
 os.makedirs(new_dir, exist_ok=True)
   
 # 3 Perform an automated analysis and create a README file
-#df=pd.read_csv(file_path)
-#df_anal=df.describe()
+df=pd.read_csv('goodreads.csv')
+df_anal=df.describe()
   
 # 4 create a README.md file
-     
-#with open(os.path.join(new_dir,'README.md'), 'w') as f:
-#f.write(df_anal.to_markdown())
+with open(os.path.join(new_dir,'README.md'), 'w') as f:
+ f.write(df_anal.to_markdown())
 
-#return(f)
+print(f)
 
   
   
