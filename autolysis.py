@@ -29,6 +29,7 @@ df=pd.read_csv(file_path,encoding='latin-1')
 
 n_rows=df.shape[0] # how many samples ?
 n_cols=df.shape[1] # how many variables?
+print (n_rows,n_cols)
 
 variables=np.array(df.columns) # names of the variables
 
@@ -47,8 +48,12 @@ with open(os.path.join(new_dir,'README.md'), 'w') as f:
     
     f.write("## Basic Information\n")
 
-    f.write("# the dataset has {n_rows} samples with {n_columns} variables each\n\n")
-    f.write("# the summary is the datatypes and number of missing values is as below\n\n")
+    
+
+    f.write("the number of samples in the dataset: {n_rows} \n\n")
+    f.write("the number of variables in the dataset:{n_cols} \n\n")
+
+    f.write("the summary is the datatypes and number of missing values is as below\n\n")
 
     f.write(dtypes.to_markdown(index=False))
 
