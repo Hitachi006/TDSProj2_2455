@@ -1,8 +1,10 @@
-# Analysis Summary for media.csv
+# Analysis Summary for _media.csv_
 
-The dataset conatins 2652 samples with 8 variables each
+* The dataset contains **2652** samples with **8 variables** each
 
-the summary is the datatypes and number of missing values is as below
+* Of the 8 variables, **3 are numeric variables** while **5 are categorical variables** 
+
+* The summary is the datatypes and number of missing values is as below
 
 | variable      | data_type   |   missing_data |
 |:--------------|:------------|---------------:|
@@ -15,5 +17,5 @@ the summary is the datatypes and number of missing values is as below
 | quality       | int64       |              0 |
 | repeatability | int64       |              0 |
 
-The variables with the highest correlation are: overall and quality, with a correlation of 0.83
+ > The variables with the highest correlation are: **overall** and **quality**, with a correlation of _0.83_
 

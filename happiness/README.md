@@ -1,10 +1,10 @@
 # Analysis Summary for _happiness.csv_
 
--The dataset contains **2363** samples with **11 variables** each
+* The dataset contains **2363** samples with **11 variables** each
 
-Of the 11 variables, **10 are numeric variables** while **1 are categorical variables** 
+* Of the 11 variables, **10 are numeric variables** while **1 are categorical variables** 
 
-* -The summary is the datatypes and number of missing values is as below
+* The summary is the datatypes and number of missing values is as below
 
 | variable                         | data_type   |   missing_data |
 |:---------------------------------|:------------|---------------:|
@@ -20,5 +20,5 @@ Of the 11 variables, **10 are numeric variables** while **1 are categorical vari
 | Positive affect                  | float64     |             24 |
 | Negative affect                  | float64     |             16 |
 
--The variables with the highest correlation are: **Log GDP per capita** and **Healthy life expectancy at birth**, with a correlation of _0.82_
+ > The variables with the highest correlation are: **Log GDP per capita** and **Healthy life expectancy at birth**, with a correlation of _0.82_
 

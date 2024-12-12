@@ -77,15 +77,15 @@ def read_me(new_dir,file_name,anal_sum,dtypes):
        
         f.write(f"# Analysis Summary for _{file_name}.csv_\n\n")
 
-        f.write(f"-The dataset contains **{anal_sum['n_samples']}** samples with **{anal_sum['n_variables']} variables** each\n\n")
+        f.write(f"* The dataset contains **{anal_sum['n_samples']}** samples with **{anal_sum['n_variables']} variables** each\n\n")
         
-        f.write(f"Of the {anal_sum ['n_variables']} variables, **{len(anal_sum ['num_var'].columns)} are numeric variables** while **{len(anal_sum ['cat_var'].columns)} are categorical variables** \n\n")
+        f.write(f"* Of the {anal_sum ['n_variables']} variables, **{len(anal_sum ['num_var'].columns)} are numeric variables** while **{len(anal_sum ['cat_var'].columns)} are categorical variables** \n\n")
 
-        f.write("* -The summary is the datatypes and number of missing values is as below\n\n")
+        f.write("* The summary is the datatypes and number of missing values is as below\n\n")
 
         f.write(dtypes.to_markdown(index=False))
 
-        f.write(f"\n\n-The variables with the highest correlation are: **{anal_sum['max_corr_1']}** and **{anal_sum['max_corr_2']}**, with a correlation of _{anal_sum['max_corr']}_\n\n")
+        f.write(f"\n\n > The variables with the highest correlation are: **{anal_sum['max_corr_1']}** and **{anal_sum['max_corr_2']}**, with a correlation of _{anal_sum['max_corr']}_\n\n")
 
     return f
 

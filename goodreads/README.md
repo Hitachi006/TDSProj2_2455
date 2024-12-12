@@ -1,8 +1,10 @@
-# Analysis Summary for goodreads.csv
+# Analysis Summary for _goodreads.csv_
 
-The dataset conatins 10000 samples with 23 variables each
+* The dataset contains **10000** samples with **23 variables** each
 
-the summary is the datatypes and number of missing values is as below
+* Of the 23 variables, **16 are numeric variables** while **7 are categorical variables** 
+
+* The summary is the datatypes and number of missing values is as below
 
 | variable                  | data_type   |   missing_data |
 |:--------------------------|:------------|---------------:|
@@ -30,5 +32,5 @@ the summary is the datatypes and number of missing values is as below
 | image_url                 | object      |              0 |
 | small_image_url           | object      |              0 |
 
-The variables with the highest correlation are: ratings_count and work_ratings_count, with a correlation of 1.0
+ > The variables with the highest correlation are: **ratings_count** and **work_ratings_count**, with a correlation of _1.0_
 
