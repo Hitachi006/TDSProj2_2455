@@ -1,7 +1,7 @@
 # a function to create an analysis
 
 #!/usr/bin/env uv
-# uv: dependencies = ["pandas", "numpy", "os","seaborn"]
+# uv: dependencies = ["pandas", "numpy", "os","seaborn","requests","json","openai"]
 
 
 import pandas as pd
@@ -10,17 +10,28 @@ import os
 import sys
 import seaborn as sns
 import matplotlib.pyplot as plt
+import requests
+import json
+import openai
+from openai import OpenAI
 
-# 1 create a new directory with filename
+# 0.1 configure the OpenAI API
+
+client=OpenAI(
+    base_url='https://aiproxy.sanand.workers.dev/openai/v1',
+    api_key=os.getenv("AIRPROXY_TOKEN"),
+)
+
+# define the key functions
+
+# f1 create a new directory with filename
 
 def create_new_dir(file_name):
     new_dir = os.path.join(os.getcwd(), file_name)
-    #print(new_dir)
-    #print(file_path)
     os.makedirs(new_dir, exist_ok=True)
     return new_dir
   
-# 2 Perform an automated generic analysis
+# f2 Perform an automated generic analysis
 
 def auto_gen_analysis(file_path):
     df=pd.read_csv(file_path,encoding='latin-1')
@@ -42,7 +53,7 @@ def auto_gen_analysis(file_path):
     dtypes=pd.merge(dtypes,missing_data,on='variable')
     dtypes.columns=['variable','data_type','missing_data']
 
-    # segregating the numeric and categorical variables
+    # seggregating the numeric and categorical variables
 
     num_var=df.select_dtypes(include=['number'])
     cat_var=df.select_dtypes(include=['object'])
@@ -71,21 +82,21 @@ def auto_gen_analysis(file_path):
   
 # 3 create a README.md file
 
-def read_me(new_dir,file_name,anal_sum,dtypes):
+def read_me(new_dir,file_name,content):
     
     with open(os.path.join(new_dir,'README.md'), 'w') as f:
        
         f.write(f"# Analysis Summary for _{file_name}.csv_\n\n")
 
-        f.write(f"* The dataset contains **{anal_sum['n_samples']}** samples with **{anal_sum['n_variables']} variables** each\n\n")
+        f.write(content)
         
-        f.write(f"* Of the {anal_sum ['n_variables']} variables, **{len(anal_sum ['num_var'].columns)} are numeric variables** while **{len(anal_sum ['cat_var'].columns)} are categorical variables** \n\n")
+        #f.write(f"* Of the {anal_sum ['n_variables']} variables, **{len(anal_sum ['num_var'].columns)} are numeric variables** while **{len(anal_sum ['cat_var'].columns)} are categorical variables** \n\n")
 
-        f.write("* The summary is the datatypes and number of missing values is as below\n\n")
+        #f.write("* The summary is the datatypes and number of missing values is as below\n\n")
 
-        f.write(dtypes.to_markdown(index=False))
+        #f.write(dtypes.to_markdown(index=False))
 
-        f.write(f"\n\n > The variables with the highest correlation are: **{anal_sum['max_corr_1']}** and **{anal_sum['max_corr_2']}**, with a correlation of _{anal_sum['max_corr']}_\n\n")
+        #f.write(f"\n\n > The variables with the highest correlation are: **{anal_sum['max_corr_1']}** and **{anal_sum['max_corr_2']}**, with a correlation of _{anal_sum['max_corr']}_\n\n")
 
     return f
 
@@ -144,7 +155,7 @@ def key_charts(df_corr_mask,new_dir,anal_sum):
         for j in range(len(anal_sum['cat_var'].columns), len(axes)):
             fig.delaxes(axes[j])
 
-    plt.title("distribution of the categorical variables \n",fontsize=28)
+    plt.title("distribution of the categorical variables \n",fontsize=15)
     plt.tight_layout()
 
 
@@ -174,7 +185,7 @@ def key_charts(df_corr_mask,new_dir,anal_sum):
     for j in range(len(anal_sum ['num_var'].columns), len(axes)):
         fig.delaxes(axes[j])
 
-    plt.title("distribution of the numerical variables \n",fontsize=28)
+    plt.title("distribution of the numerical variables \n",fontsize=15)
     plt.tight_layout()
 
 
@@ -187,12 +198,38 @@ def key_charts(df_corr_mask,new_dir,anal_sum):
 
 # 5 function to get LLM feedback
 
+def llm_feedback(anal_sum,plots):
 
+    prompt=(f" i have created an analysis of a dataset {anal_sum}\n"
+            f"please summairize the analysis in the following structure:\n"
+            f"1.describe the data in brief using{anal_sum} \n"
+            f"2. explain the analysis carried out using {anal_sum} \n"
+            f"3. call out the key insights from the analysis done \n"
+            f"4. recommend potential implications of the insights \n"
+            )
+   
+    messages=[{"role": "user", "content": prompt}]
+
+    
+    try:
+        response =client.chat.completions.create(
+                    model="gpt-4o-mini",
+                    messages=messages
+                    )
+        result=response.choices[0].message.content
+        return(result)
+        
+    
+    except Exception as e:
+        print(f"Error interacting with LLM: {e}")
+        return "No insights could be generated due to an error."
+
+   
 
 # 6 function to string the steps together into the main code 
 
 def main():
-
+      
     # 0 extract filename and file path from the system command
 
     csv_path="".join(sys.argv[1:]) #
@@ -205,13 +242,16 @@ def main():
     anlsys_sum,corr_mask,corr_mat,data_types=auto_gen_analysis(csv_path)
 
     # 3 write a readme file using the defined function
-    readme=read_me(new_directory,csv_name,anlsys_sum,data_types)
+    #readme=read_me(new_directory,csv_name,anlsys_sum,data_types)
 
     # 4 build key charts using the defined function
     charts=key_charts(corr_mask,new_directory,anlsys_sum)
 
-    # 5 get LLM feedback using the defined function
+    # 5 get LLM to provide the feedback
+    llmfeedback=llm_feedback(anlsys_sum,charts)
 
+    # 6 Create a readme file and write the narrative
+    readme=read_me(new_directory,csv_name,llmfeedback)
 
 # code execution block
 if __name__=="__main__":
