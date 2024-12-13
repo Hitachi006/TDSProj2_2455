@@ -1,7 +1,7 @@
 # a function to create an analysis
 
 #!/usr/bin/env uv
-# uv: dependencies = ["pandas", "numpy","sys","os",'seaborn',"matplotlib","requests","json","openai"]
+# uv: dependencies = ['pandas', 'numpy','sys','os','seaborn','matplotlib','requests','json','openai']
 
 
 
