@@ -11,7 +11,7 @@ import os
 import sys
 import seaborn as sns
 import matplotlib.pyplot as plt
-import requests
+#import requests
 import json
 import openai
 from openai import OpenAI
