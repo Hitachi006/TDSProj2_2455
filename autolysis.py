@@ -1,7 +1,8 @@
 # a function to create an analysis
 
 #!/usr/bin/env uv
-# uv: dependencies = ["pandas", "numpy", "os","seaborn","requests","json","openai"]
+# uv: dependencies = ["pandas", "numpy","sys","os",'seaborn',"matplotlib","requests","json","openai"]
+
 
 
 import pandas as pd
@@ -19,7 +20,7 @@ from openai import OpenAI
 
 client=OpenAI(
     base_url='https://aiproxy.sanand.workers.dev/openai/v1',
-    api_key=os.getenv("AIRPROXY_TOKEN"),
+    api_key=os.getenv("AIPROXY_TOKEN"),
 )
 
 # define the key functions
