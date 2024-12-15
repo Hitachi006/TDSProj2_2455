@@ -1,0 +1,27 @@
+                                                                                                                                                                                                        Hitachi006-TDSProj2_2455 CLONE https://github.com/Hitachi006/TDSProj2_2455.git                                                                                                                                                                                                        Hitachi006-TDSProj2_2455 LOG https://github.com/Hitachi006/TDSProj2_2455.git                                                                                                                                                                                                        Hitachi006-TDSProj2_2455 CHECKOUT b50d92398afd0ecb650c330befaffbeb7095b926                                                                                                                                                                                                        Hitachi006-TDSProj2_2455 CODE QUALITY                                                                                                                                                                                                        Hitachi006-TDSProj2_2455 uv run autolysis goodreads.csv                                                                                                                                                                                                        Hitachi006-TDSProj2_2455 uv run autolysis happiness.csv                                                                                                                                                                                                        Hitachi006-TDSProj2_2455 uv run autolysis media.csv                                                                                                                                                                                                        Hitachi006-TDSProj2_2455 OUTPUT QUALITY happiness.csv                                                                                                                                                                                                        Hitachi006-TDSProj2_2455 75s SCORE 6.0 / 14.0
+    marks  ...                        id
+0     0.5  ...  Hitachi006-TDSProj2_2455
+1     0.5  ...  Hitachi006-TDSProj2_2455
+2     0.4  ...  Hitachi006-TDSProj2_2455
+3     0.1  ...  Hitachi006-TDSProj2_2455
+4     0.1  ...  Hitachi006-TDSProj2_2455
+5     0.1  ...  Hitachi006-TDSProj2_2455
+6     0.1  ...  Hitachi006-TDSProj2_2455
+7     0.1  ...  Hitachi006-TDSProj2_2455
+8     0.1  ...  Hitachi006-TDSProj2_2455
+9     0.0  ...  Hitachi006-TDSProj2_2455
+10    0.0  ...  Hitachi006-TDSProj2_2455
+11    0.0  ...  Hitachi006-TDSProj2_2455
+12    0.0  ...  Hitachi006-TDSProj2_2455
+13    0.0  ...  Hitachi006-TDSProj2_2455
+14    0.0  ...  Hitachi006-TDSProj2_2455
+15    0.0  ...  Hitachi006-TDSProj2_2455
+16    0.5  ...  Hitachi006-TDSProj2_2455
+17    0.5  ...  Hitachi006-TDSProj2_2455
+18    0.5  ...  Hitachi006-TDSProj2_2455
+19    0.5  ...  Hitachi006-TDSProj2_2455
+20    1.0  ...  Hitachi006-TDSProj2_2455
+21    1.0  ...  Hitachi006-TDSProj2_2455
+22    0.0  ...  Hitachi006-TDSProj2_2455
+
+[23 rows x 5 columns]
